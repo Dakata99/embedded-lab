@@ -15,6 +15,6 @@ module_init(hello_init);
 module_exit(hello_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("dlyubenov");
+MODULE_AUTHOR("Dakata99");
 MODULE_DESCRIPTION("A simple Hello World kernel module");
 MODULE_VERSION("1.0");
