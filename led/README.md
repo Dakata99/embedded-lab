@@ -15,8 +15,10 @@ sudo apt install -y python3-gpiozero python3-lgpio
 
 ## Wiring
 
+```
 GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
-GND (6) -> Breadboard (-) -> LED short leg (-, cathode)
+GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
+```
 
 ## How to?
 
