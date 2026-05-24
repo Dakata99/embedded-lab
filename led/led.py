@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from gpiozero import PWMLED
 
 LED_PIN = 17 # BCM numbering, physical pin 11
