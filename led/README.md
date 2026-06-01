@@ -12,11 +12,21 @@ sudo apt install -y python3-gpiozero python3-lgpio
 ## Tips
 
 - Use `pinout` command to check the schema of the GPIO pins.
+- BCM numbering means the code uses the GPIO number, not the physical pin number. So `LED(17)` means GPIO17, which is located on physical pin 11.
 
 ## Wiring
 
+For `led.py`:
 ```
 GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
+GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
+```
+
+For `3led.py`:
+```
+GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> Red LED long leg (+, anode)
+GPIO10 (11) -> Breadboard (+) -> Resistor (220 Ω) -> Yellow LED long leg (+, anode)
+GPIO7  (11) -> Breadboard (+) -> Resistor (220 Ω) -> Green LED long leg (+, anode)
 GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
 ```
 
@@ -45,4 +55,9 @@ pinctrl set 17 no
 Run `led.py` like to play with the LED:
 ```bash
 python led.py
+```
+
+Run `3led.py` to simulate a traffic light:
+```bash
+python 3led.py
 ```
