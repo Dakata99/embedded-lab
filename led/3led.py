@@ -4,7 +4,7 @@ from gpiozero import PWMLED
 from time import sleep
 import threading
 
-RED_LED_PIN = 17 # BCM numbering, physical pin 11
+RED_LED_PIN = 17  # BCM numbering, physical pin 11
 red = PWMLED(RED_LED_PIN)
 
 YELLOW_LED_PIN = 10
@@ -17,9 +17,11 @@ print("Raspberry Pi 3 LED control")
 
 stop_event = threading.Event()
 
+
 def input_thread():
     input("Enter 'q' to stop...\n")
     stop_event.set()
+
 
 def worker_thread():
     try:
@@ -40,6 +42,7 @@ def worker_thread():
         red.close()
         yellow.close()
         green.close()
+
 
 threading.Thread(target=input_thread, daemon=True).start()
 worker_thread()

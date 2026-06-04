@@ -1,0 +1,18 @@
+[project]
+name = "embedded-lab"
+version = "0.1.0"
+description = "Embedded Lab is a collection of resources and tutorials for embedded systems development."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocs>=1.4,<2.0",
+    "mkdocs-material>=9.0,<10.0"
+]
+
+[dependency-groups]
+dev = [
+    "devtools",
+]
+
+[tool.uv.sources]
+devtools = { git = "ssh://git@github.com/Dakata99/devtools.git" }

@@ -1,0 +1,21 @@
+site_name: Embedded Lab
+docs_dir: docs
+
+theme:
+    name: material
+    palette:
+        - scheme: default
+          primary: teal
+          accent: amber
+          toggle:
+            icon: material/weather-night
+            name: Switch to dark mode
+        - scheme: slate
+          primary: teal
+    accent: amber
+    toggle:
+        icon: material/white-balance-sunny
+        name: Switch to light mode
+    features:
+        - navigation.instant
+        - content.code.copy

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $(which uv) == "" ]]; then
+    echo "Please install uv (sudo apt install uv) and try again."
+    exit 1
+fi
+
+uv venv .emlab --prompt emlab --clear
+source .emlab/bin/activate
