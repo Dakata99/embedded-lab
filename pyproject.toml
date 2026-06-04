@@ -15,4 +15,4 @@ dev = [
 ]
 
 [tool.uv.sources]
-devtools = { git = "ssh://git@github.com/Dakata99/devtools.git" }
+devtools = { git = "https://github.com/Dakata99/devtools.git" }
