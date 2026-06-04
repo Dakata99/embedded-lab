@@ -5,5 +5,8 @@ if [[ $(which uv) == "" ]]; then
     exit 1
 fi
 
-uv venv .emlab --prompt emlab --clear
-source .emlab/bin/activate
+PROMPT=emlab
+export UV_PROJECT_ENVIRONMENT=.$PROMPT
+uv venv $UV_PROJECT_ENVIRONMENT --prompt emlab --clear
+source $UV_PROJECT_ENVIRONMENT/bin/activate
+uv sync --active --quiet

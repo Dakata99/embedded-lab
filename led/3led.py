@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
-from gpiozero import PWMLED
-from time import sleep
 import threading
+from time import sleep
+
+from gpiozero import PWMLED
 
 RED_LED_PIN = 17  # BCM numbering, physical pin 11
 red = PWMLED(RED_LED_PIN)
@@ -18,12 +19,12 @@ print("Raspberry Pi 3 LED control")
 stop_event = threading.Event()
 
 
-def input_thread():
+def input_thread() -> None:
     input("Enter 'q' to stop...\n")
     stop_event.set()
 
 
-def worker_thread():
+def worker_thread() -> None:
     try:
         while not stop_event.is_set():
             red.on()
