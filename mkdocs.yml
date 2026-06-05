@@ -1,6 +1,15 @@
 site_name: Embedded Lab
 docs_dir: docs
 
+nav:
+    - Home: index.md
+    - Hello world "driver": hello-world/index.md
+    - LED examples:
+        - led/index.md
+        - LED: led/led.md
+        - "3 LEDs": led/3leds.md
+    - Tips: tips.md
+
 theme:
     name: material
     palette:
@@ -12,10 +21,11 @@ theme:
             name: Switch to dark mode
         - scheme: slate
           primary: teal
-    accent: amber
-    toggle:
-        icon: material/white-balance-sunny
-        name: Switch to light mode
+          accent: amber
+          toggle:
+            icon: material/white-balance-sunny
+            name: Switch to light mode
     features:
+        - navigation.indexes
         - navigation.instant
         - content.code.copy

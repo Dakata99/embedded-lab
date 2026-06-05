@@ -1,8 +1,7 @@
 # Tips
 
-## How to dectect your Raspberry Pi?
+## How to detect your Raspberry Pi?
 
-Run:
 ```bash
 nmap -p <PORT> --open <NETWORK_IP>/<MASK>
 ```

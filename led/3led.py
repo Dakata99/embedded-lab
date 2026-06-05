@@ -5,7 +5,9 @@ from time import sleep
 
 from gpiozero import PWMLED
 
-RED_LED_PIN = 17  # BCM numbering, physical pin 11
+# BCM numbering means the code uses the GPIO number, not the physical pin number.
+# So LED(17) means GPIO17, which is located on physical pin 11.
+RED_LED_PIN = 17
 red = PWMLED(RED_LED_PIN)
 
 YELLOW_LED_PIN = 10

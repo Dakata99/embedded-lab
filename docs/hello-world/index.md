@@ -4,7 +4,12 @@ This is an example of how to load/unload a driver into the kernel. It's not a re
 
 ## How to?
 
-Firstly, compile the "driver" by:
+Firstly, go to the project:
+```bash
+cd hello-world
+```
+
+Compile the "driver" by:
 ```bash
 make
 ```

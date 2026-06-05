@@ -1,63 +1,46 @@
 # LED
 
-A minimal embedded-lab example showing how to control an LED via GPIO on a Linux SBC. Includes a Python script plus `pinctrl` commands to turn the LED on/off, read pin state, and reset the pin.
+The `led` folder contains 2 Python scripts that:
 
-## Prerequisites
+- control a LED via some commands
+- simulate a traffic light via 3 LEDs
 
-```bash
-sudo apt update
-sudo apt install -y python3-gpiozero python3-lgpio
-```
-
-## Tips
-
-- Use `pinout` command to check the schema of the GPIO pins.
-- BCM numbering means the code uses the GPIO number, not the physical pin number. So `LED(17)` means GPIO17, which is located on physical pin 11.
+Male-female jumper wires may be needed.
 
 ## Wiring
 
-For `led.py`:
+An example wiring:
 ```
 GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
 GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
 ```
 
-For `3led.py`:
-```
-GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> Red LED long leg (+, anode)
-GPIO10 (11) -> Breadboard (+) -> Resistor (220 Ω) -> Yellow LED long leg (+, anode)
-GPIO7  (11) -> Breadboard (+) -> Resistor (220 Ω) -> Green LED long leg (+, anode)
-GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
-```
+## How to manually control a LED?
 
-## How to?
+When the pin is HIGH (`dh`), the LED lights. When it is LOW (`dl`), the LED turns off.
 
-Manually, turn on the LED:
+Turn on the LED:
 ```bash
-pinctrl set 17 op dh
+pinctrl set <GPIO> op dh
 ```
 
 and to turn off:
 ```bash
-pinctrl set 17 op dl
+pinctrl set <GPIO> op dl
 ```
 
 To get the state of the GPIO pin, run:
 ```bash
-pinctrl get 17
+pinctrl get <GPIO>
 ```
 
 To reset the GPIO pin state, run:
 ```bash
-pinctrl set 17 no
+pinctrl set <GPIO> no
 ```
 
-Run `led.py` like to play with the LED:
-```bash
-python led.py
-```
+## Tips
 
-Run `3led.py` to simulate a traffic light:
-```bash
-python 3led.py
-```
+- Use `pinout` command to check the schema of the GPIO pins. Or visit [pinout.xyz](https://pinout.xyz/).
+- Do not connect an LED directly to a GPIO pin without a resistor. The resistor limits current. Think of it as a small speed limit for electricity.
+- The long LED leg is usually the positive side, called anode. The short LED leg is usually the negative side, called cathode, and goes to GND.
