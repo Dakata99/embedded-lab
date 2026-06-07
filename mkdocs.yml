@@ -1,4 +1,12 @@
+INHERIT: .mkdocs.base.yml
+
 site_name: Embedded Lab
+site_description: Laboratory for embedded systems development and learning.
+site_url: https://emlab-docs.github.io/
+
+repo_url: https://github.com/Dakata99/embedded-lab
+repo_name: Dakata99/embedded-lab
+
 docs_dir: docs
 
 nav:
@@ -9,23 +17,3 @@ nav:
         - LED: led/led.md
         - "3 LEDs": led/3leds.md
     - Tips: tips.md
-
-theme:
-    name: material
-    palette:
-        - scheme: default
-          primary: teal
-          accent: amber
-          toggle:
-            icon: material/weather-night
-            name: Switch to dark mode
-        - scheme: slate
-          primary: teal
-          accent: amber
-          toggle:
-            icon: material/white-balance-sunny
-            name: Switch to light mode
-    features:
-        - navigation.indexes
-        - navigation.instant
-        - content.code.copy

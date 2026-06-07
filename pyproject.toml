@@ -5,10 +5,6 @@ description = "Embedded Lab is a collection of resources and tutorials for embed
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    # Documentation dependencies
-    "mkdocs>=1.4,<2.0",
-    "mkdocs-material>=9.0,<10.0",
-
     # Required dependencies
     "gpiozero",
     "lgpio",
@@ -16,8 +12,8 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "devtools",
+    "devtools[docs]",
 ]
 
 [tool.uv.sources]
-devtools = { git = "https://github.com/Dakata99/devtools.git" }
+devtools = { git = "https://github.com/Dakata99/devtools.git", rev = "main" }

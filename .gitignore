@@ -3,3 +3,5 @@
 .ruff_cache
 .vscode
 uv.lock
+.mkdocs.base.yml
+site
