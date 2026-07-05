@@ -3,17 +3,20 @@
         {
             "id": "led-1",
             "label": "Red LED",
-            "gpio": 18
+            "gpio": 18,
+            "supports": ["on", "off", "blink", "pulse"]
         },
         {
             "id": "led-2",
             "label": "Yellow LED",
-            "gpio": 24
+            "gpio": 24,
+            "supports": ["on", "off" ]
         },
         {
             "id": "led-3",
             "label": "Green LED",
-            "gpio": 25
+            "gpio": 25,
+            "supports": ["on", "off", "blink"]
         }
     ]
 }

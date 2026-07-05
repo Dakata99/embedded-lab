@@ -90,4 +90,3 @@ sudo systemctl reset-failed
 ## TODOs
 
 - Add effects - treat blink and pulse as commands with parameters (add to GUI).
-- Add `supports` field for supported commands in the JSON file (and GUI).

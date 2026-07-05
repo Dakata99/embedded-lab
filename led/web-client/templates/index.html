@@ -68,27 +68,13 @@
                 </div>
 
                 <p class="commands-header">Available commands</p>
-
                 <div class="commands">
-                    <button class="command-button cmd-on" data-command="on">
-                        <span>Turn on</span>
-                        <span>on</span>
+                    {% for command in led.supports %}
+                    <button class="command-button cmd-{{ command }}" data-command="{{ command }}">
+                        <span>Turn {{ command }}</span>
+                        <span>{{ command }}</span>
                     </button>
-
-                    <button class="command-button cmd-off" data-command="off">
-                        <span>Turn off</span>
-                        <span>off</span>
-                    </button>
-
-                    <button class="command-button cmd-blink" data-command="blink">
-                        <span>Blink</span>
-                        <span>blink</span>
-                    </button>
-
-                    <button class="command-button cmd-pulse" data-command="pulse">
-                        <span>Pulse</span>
-                        <span>pulse</span>
-                    </button>
+                    {% endfor %}
                 </div>
             </article>
             {% endfor %}

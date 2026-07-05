@@ -3,7 +3,7 @@ import atexit
 from pathlib import Path
 import json
 from loguru import logger
-from ledmanager import LedManager
+from ledmanager import LedManager, Led
 import os
 
 HOSTIP: str = os.environ.get("HOSTIP", "0.0.0.0").strip()
@@ -22,7 +22,7 @@ def index():
     leds = metadata['leds']
     if not led_manager.configured():
         for led in leds:
-            led_manager.register(led['id'], led['gpio'])
+            led_manager.register(led['id'],Led(led))
 
     return render_template("index.html", leds=leds)
 
