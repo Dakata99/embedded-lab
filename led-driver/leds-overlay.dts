@@ -1,0 +1,30 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2712";
+
+    fragment@0 {
+        target-path = "/";
+
+        __overlay__ {
+            pi_led_node: pi-led {
+                compatible = "custom,pi-led";
+                status = "okay";
+
+                /*
+                 * These are BCM GPIO numbers:
+                 *
+                 * GPIO17 = physical pin 11
+                 * GPIO10 = physical pin 13
+                 * GPIO7 = physical pin 15
+                 *
+                 * Last cell 0 means active-high.
+                 */
+                led-gpios = <&gpio 17 0>,
+                            <&gpio 10 0>,
+                            <&gpio 7 0>;
+            };
+        };
+    };
+};
