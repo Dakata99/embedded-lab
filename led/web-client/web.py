@@ -4,6 +4,11 @@ from pathlib import Path
 import json
 from loguru import logger
 from ledmanager import LedManager
+import os
+
+HOSTIP: str = os.environ.get("HOSTIP", "0.0.0.0").strip()
+PORT: int = int(os.environ.get("PORT", 5000))
+LED_CONFIG: Path = Path(os.environ.get("LED_CONFIG", Path(__file__).parent / "config.json"))
 
 app = Flask(__name__)
 
@@ -11,9 +16,7 @@ led_manager = LedManager()
 
 @app.route("/")
 def index():
-    configfile = Path(__file__).parent / 'config.json'
-
-    with open(configfile) as fd:
+    with open(LED_CONFIG) as fd:
         metadata = json.load(fd)
 
     leds = metadata['leds']
@@ -62,4 +65,13 @@ def led_action():
     }), 400
 
 
-atexit.register(led_manager.cleanup)
+if __name__ == "__main__":
+    app.run(
+        host=HOSTIP,
+        port=PORT,
+        debug=False,
+        use_reloader=False,
+    )
+    atexit.register(led_manager.cleanup)
+else:
+    atexit.register(led_manager.cleanup)

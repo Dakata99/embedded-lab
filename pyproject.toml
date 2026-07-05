@@ -10,6 +10,7 @@ dependencies = [
     "gpiozero",
     "lgpio",
     "loguru>=0.7.3",
+    "pyinstaller>=6.21.0",
 ]
 
 [dependency-groups]
