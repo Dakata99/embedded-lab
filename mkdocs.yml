@@ -17,5 +17,8 @@ nav:
         - LED: led/led.md
         - 3 LEDs: led/3leds.md
         - LED client: led/led-client.md
+    - AHT10:
+        - Overview: aht10/index.md
+        - Web client: aht10/web-client.md
     - Tips: tips.md
     - References: references.md
