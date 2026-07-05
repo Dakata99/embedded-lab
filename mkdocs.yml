@@ -13,7 +13,9 @@ nav:
     - Home: index.md
     - Hello world "driver": hello-world/index.md
     - LED examples:
-        - led/index.md
+        - Overview: led/index.md
         - LED: led/led.md
-        - "3 LEDs": led/3leds.md
+        - 3 LEDs: led/3leds.md
+        - LED client: led/led-client.md
     - Tips: tips.md
+    - References: references.md

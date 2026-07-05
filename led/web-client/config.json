@@ -1,0 +1,19 @@
+{
+    "leds": [
+        {
+            "id": "led-1",
+            "label": "Red LED",
+            "gpio": 18
+        },
+        {
+            "id": "led-2",
+            "label": "Yellow LED",
+            "gpio": 24
+        },
+        {
+            "id": "led-3",
+            "label": "Green LED",
+            "gpio": 25
+        }
+    ]
+}

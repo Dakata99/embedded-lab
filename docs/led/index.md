@@ -1,21 +1,20 @@
 # LED
 
-The `led` folder contains 2 Python scripts that:
+The `led` folder contains 3 Python scripts that:
 
 - control a LED via some commands
 - simulate a traffic light via 3 LEDs
+- web client for controllig the 3 LEDs
 
 Male-female jumper wires may be needed.
 
-## Wiring
-
-An example wiring:
-```
-GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
-GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
-```
-
 ## How to manually control a LED?
+
+Suppose the following wiring is made:
+```
+GPIO18 (12) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
+GND    (14) -> Breadboard (-) -> LED short leg (-, cathode)
+```
 
 When the pin is HIGH (`dh`), the LED lights. When it is LOW (`dl`), the LED turns off.
 

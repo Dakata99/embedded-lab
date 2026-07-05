@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi LED Control Panel</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <main class="shell">
+        <header class="hero">
+            <section>
+                <div class="eyebrow">Pi GPIO Control</div>
+                <h1>LED Control Panel</h1>
+                <p>
+                    Select an LED card, choose a command, and post a small JSON message to your Flask server.
+                    The page logs the exact payload, so you can verify the browser side before wiring real GPIO.
+                </p>
+            </section>
+
+            <section class="global-panel" aria-label="Global LED controls">
+                <div class="global-panel-title">
+                    <span>All LEDs</span>
+                    <span class="api-pill">POST /api/leds/action</span>
+                </div>
+
+                <div class="global-actions">
+                    <button class="global-button global-on" data-scope="all" data-command="all-on">
+                        On
+                    </button>
+
+                    <button class="global-button global-off" data-scope="all" data-command="all-off">
+                        Off
+                    </button>
+
+                    <button class="global-button global-blink" data-scope="all" data-command="all-blink">
+                        Blink
+                    </button>
+
+                    <button class="global-button global-pulse" data-scope="all" data-command="all-pulse">
+                        Pulse
+                    </button>
+                </div>
+            </section>
+        </header>
+
+        <section class="dashboard" aria-label="Individual LED controls">
+            <!-- Loop through LEDs and create cards -->
+            {% for led in leds %}
+            <article class="led-card" data-led-id="{{ led.id }}" data-gpio-pin="{{ led.gpio }}">
+                <div class="card-top">
+                    <div class="led-identity">
+                        <span class="led-light" aria-hidden="true"></span>
+                        <div>
+                            <h2 class="led-name">{{ led.label }}</h2>
+                            <p class="led-meta">ID: {{ led.id }} · GPIO {{ led.gpio }}</p>
+                        </div>
+                    </div>
+                    <label class="enable-toggle" aria-label="Enable LED 1">
+                        <input type="checkbox" data-command="enable" checked="">
+                        <span class="slider" aria-hidden="true">
+                            <span class="toggle-text">Enabled</span>
+                        </span>
+                    </label>
+                </div>
+
+                <p class="commands-header">Available commands</p>
+
+                <div class="commands">
+                    <button class="command-button cmd-on" data-command="on">
+                        <span>Turn on</span>
+                        <span>on</span>
+                    </button>
+
+                    <button class="command-button cmd-off" data-command="off">
+                        <span>Turn off</span>
+                        <span>off</span>
+                    </button>
+
+                    <button class="command-button cmd-blink" data-command="blink">
+                        <span>Blink</span>
+                        <span>blink</span>
+                    </button>
+
+                    <button class="command-button cmd-pulse" data-command="pulse">
+                        <span>Pulse</span>
+                        <span>pulse</span>
+                    </button>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

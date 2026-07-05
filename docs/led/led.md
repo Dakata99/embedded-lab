@@ -5,8 +5,8 @@ A minimal embedded-lab example showing how to control an LED via GPIO on a Linux
 ## Wiring
 
 ```
-GPIO17 (11) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
-GND    (6)  -> Breadboard (-) -> LED short leg (-, cathode)
+GPIO18 (12) -> Breadboard (+) -> Resistor (220 Ω) -> LED long leg (+, anode)
+GND    (14) -> Breadboard (-) -> LED short leg (-, cathode)
 ```
 
 ## How to run?

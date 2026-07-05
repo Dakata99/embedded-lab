@@ -1,10 +1,8 @@
-#!/usr/bin/python
-
 from gpiozero import PWMLED
 
 # BCM numbering means the code uses the GPIO number, not the physical pin number.
-# So LED(17) means GPIO17, which is located on physical pin 11.
-LED_PIN = 17
+# So LED(18) means GPIO18, which is located on physical pin 12.
+LED_PIN = 18
 led = PWMLED(LED_PIN)
 
 commands = ["on", "off", "blink", "pulse", "quit"]
