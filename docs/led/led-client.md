@@ -65,8 +65,29 @@ The backend exposes the LEDS through an endpoint such as `GET /api/leds`.
 
 > File: `led/web-client/config.json`.
 
+## Service
+
+To make the project as a service, run the script `led/web-client/install.sh`.
+It describes the steps how to:
+
+- install the project as a bundle,
+- install it to `/opt` folder,
+- add it to `systemd` as a service.
+
+To see logging from the service, do:
+```bash
+journalctl -u <service-name>.service -f
+```
+
+To fully remove the service, do:
+```bash
+sudo systemctl disable --now <service-name>.service
+sudo rm /etc/systemd/system/<service-name>.service
+sudo systemctl daemon-reload
+sudo systemctl reset-failed
+```
+
 ## TODOs
 
 - Add effects - treat blink and pulse as commands with parameters (add to GUI).
 - Add `supports` field for supported commands in the JSON file (and GUI).
-- Add service to systemd.
