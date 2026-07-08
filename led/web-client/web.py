@@ -8,23 +8,27 @@ import os
 
 HOSTIP: str = os.environ.get("HOSTIP", "0.0.0.0").strip()
 PORT: int = int(os.environ.get("PORT", 5000))
-LED_CONFIG: Path = Path(os.environ.get("LED_CONFIG", Path(__file__).parent / "config.json"))
+LED_CONFIG: Path = Path(
+    os.environ.get("LED_CONFIG", Path(__file__).parent / "config.json")
+)
 
 app = Flask(__name__)
 
 led_manager = LedManager()
+
 
 @app.route("/")
 def index():
     with open(LED_CONFIG) as fd:
         metadata = json.load(fd)
 
-    leds = metadata['leds']
+    leds = metadata["leds"]
     if not led_manager.configured():
         for led in leds:
-            led_manager.register(led['id'], led['gpio'])
+            led_manager.register(led["id"], led["gpio"])
 
     return render_template("index.html", leds=leds)
+
 
 @app.post("/api/leds/action")
 def led_action():
@@ -58,11 +62,9 @@ def led_action():
 
         return jsonify({"status": "ok"})
 
-    return jsonify({
-        "status": "error",
-        "message": "Invalid payload",
-        "received": data
-    }), 400
+    return jsonify(
+        {"status": "error", "message": "Invalid payload", "received": data}
+    ), 400
 
 
 if __name__ == "__main__":
