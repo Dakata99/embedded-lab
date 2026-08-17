@@ -28,12 +28,12 @@
 
                     <div>
                         <h2>Temperature</h2>
-                        <div class="status">{{ temp_status }}</div>
+                        <div id="temperature-status" class="status">{{ temperature_status }}</div>
                     </div>
                 </div>
 
                 <div class="value">
-                    <span id="temperature-value">{{ temperature | round(2) }}</span><span class="unit">°C</span>
+                    <span id="temperature-value">{{ temperature }}</span><span class="unit">°C</span>
                 </div>
 
                 <p class="description">
@@ -49,12 +49,12 @@
 
                     <div>
                         <h2>Humidity</h2>
-                        <div class="status">{{ humid_status }}</div>
+                        <div id="humidity-status" class="status">{{ humidity_status }}</div>
                     </div>
                 </div>
 
                 <div class="value">
-                    <span id="humidity-value">{{ humidity | round(2) }}</span><span class="unit">%</span>
+                    <span id="humidity-value">{{ humidity }}</span><span class="unit">%</span>
                 </div>
 
                 <p class="description">
