@@ -20,5 +20,6 @@ nav:
     - AHT10:
         - Overview: aht10/index.md
         - Web client: aht10/web-client.md
+        - Driver: aht10/driver.md
     - Tips: tips.md
     - References: references.md

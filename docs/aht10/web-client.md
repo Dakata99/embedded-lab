@@ -9,7 +9,7 @@ Firstly, setup the environment:
 
 then run:
 ```bash
-flask --app aht10/web.py run -h $(hostname -I)
+flask --app aht10/user-space/web.py run -h $(hostname -I)
 ```
 
 Use `--debug` option to enable reloading (while developing).

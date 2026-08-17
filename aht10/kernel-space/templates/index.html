@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Environment Monitor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <main class="dashboard">
+        <section class="title">
+            <h1>Environment Monitor</h1>
+            <p>Live temperature and humidity dashboard</p>
+        </section>
+
+        <section class="time-box">
+            <div class="label">Current Time</div>
+            <div class="time" id="current-time">--:--:--</div>
+            
+            <div class="status-box">
+                <div id="status-light" class="light"></div>
+                <span id="status-text"></span>
+            </div>
+        </section>
+
+        <section class="cards">
+            <article class="card temperature">
+                <div class="card-header">
+                    <div class="icon">🌡️</div>
+
+                    <div>
+                        <h2>Temperature</h2>
+                        <div id="temperature-status" class="status">{{ temp_status }}</div>
+                    </div>
+                </div>
+
+                <div class="value">
+                    <span id="temperature-value">{{ temperature }}</span><span class="unit">°C</span>
+                </div>
+
+                <p class="description">
+                    Measures the surrounding air temperature from your sensor.
+                </p>
+
+                <div class="circle"></div>
+            </article>
+
+            <article class="card humidity">
+                <div class="card-header">
+                    <div class="icon">💧</div>
+
+                    <div>
+                        <h2>Humidity</h2>
+                        <div id="humidity-status" class="status">{{ humid_status }}</div>
+                    </div>
+                </div>
+
+                <div class="value">
+                    <span id="humidity-value">{{ humidity }}</span><span class="unit">%</span>
+                </div>
+
+                <p class="description">
+                    Shows the amount of moisture currently present in the air.
+                </p>
+
+                <div class="circle"></div>
+            </article>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

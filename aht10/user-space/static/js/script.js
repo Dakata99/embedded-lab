@@ -13,27 +13,22 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-/*
-    Later, when you connect this to Flask, you can replace the static
-    values with data from your backend, for example:
-
-    fetch("/sensor-data")
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("temperature-value").textContent = data.temperature;
-            document.getElementById("humidity-value").textContent = data.humidity;
-        });
-*/
-
 function updateEnv() {
     fetch("/api/env")
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             document.getElementById("temperature-value").textContent =
                 data.temperature.toFixed(2) + " °C";
 
+            document.getElementById("temperature-status").textContent =
+                data['temperature-status'];
+
             document.getElementById("humidity-value").textContent =
                 data.humidity.toFixed(2) + " %";
+            
+            document.getElementById("humidity-status").textContent =
+                data['humidity-status'];
         })
         .catch(err => console.error("Error fetching env:", err));
 }
