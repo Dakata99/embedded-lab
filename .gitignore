@@ -1,9 +1,3 @@
-.emlab
-.mypy_cache
-.ruff_cache
-.vscode
-uv.lock
-.mkdocs.base.yml
+.venv
 site
 __pycache__/
-.devtools/
