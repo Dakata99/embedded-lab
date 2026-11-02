@@ -7,9 +7,11 @@ fi
 
 NAME=led-web-client
 APP=web.py
+DIST=/tmp/dist-$NAME
+DEST=/opt/$NAME
 
 # Make sure the dist directory does not exist
-rm -rf /tmp/dist-$NAME
+rm -rf $DIST
 
 # Install the bundle
 pyinstaller \
@@ -22,11 +24,11 @@ pyinstaller \
     --add-data "templates:templates" \
     --add-data "static:static" \
     --add-data "config.json:." \
-    --distpath /tmp/dist-$NAME
+    --distpath $DIST
 
 # Install the bundle to /opt/
-sudo rm -rf /opt/$NAME
-sudo cp -r /tmp/dist-$NAME /opt/$NAME
+sudo rm -rf $DEST
+sudo cp -r $DIST $DEST
 
 sudo tee /etc/systemd/system/$NAME.service > /dev/null << EOF
 [Unit]
@@ -42,9 +44,9 @@ RuntimeDirectory=$NAME
 RuntimeDirectoryMode=0755
 WorkingDirectory=/run/$NAME
 
-Environment="LED_CONFIG=/opt/$NAME/$NAME/_internal/config.json"
+Environment="LED_CONFIG=$DEST/$NAME/_internal/config.json"
 
-ExecStart=/bin/sh -c 'export HOSTIP="$(hostname -I)"; exec /opt/$NAME/$NAME/$NAME'
+ExecStart=/bin/sh -c 'export HOSTIP="$(hostname -I)"; exec $DEST/$NAME/$NAME'
 
 Restart=on-failure
 RestartSec=3
