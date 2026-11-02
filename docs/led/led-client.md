@@ -8,6 +8,8 @@ Run a small service on the Raspberry Pi. Your PC browser opens a web page served
 The page asks the Pi which LEDs exist, renders one control card per LED, and sends commands such as
 on, off, blink or pulse back to the Pi.
 
+![Web Client](./image.png)
+
 ## Wiring
 
 ```
@@ -21,12 +23,13 @@ GND    (14) -> Breadboard (-) -> LED short leg (-, cathode)
 
 Firstly, setup the environment:
 ```bash
-. setupenv
+uv sync
+source .venv/bin/activate
 ```
 
 then run:
 ```bash
-flask --app led/web-client/web.py run --host $(hostname -I)
+flask --app led/web-client/web.py run --host $(hostname -I | cut -d' ' -f 1)
 ```
 
 Use `--debug` option to enable reloading (while developing).

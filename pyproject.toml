@@ -11,12 +11,5 @@ dependencies = [
     "lgpio",
     "loguru>=0.7.3",
     "pyinstaller>=6.21.0",
+    "zensical>=0.0.74",
 ]
-
-[dependency-groups]
-dev = [
-    "devtools[docs]",
-]
-
-[tool.uv.sources]
-devtools = { git = "https://github.com/Dakata99/devtools.git", rev = "main" }

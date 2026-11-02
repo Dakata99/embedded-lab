@@ -5,5 +5,5 @@
 uv.lock
 .mkdocs.base.yml
 site
-*/__pycache__/
+__pycache__/
 .devtools/
