@@ -32,7 +32,7 @@ jobs:
         run: uv sync --frozen
 
       - name: Build documentation
-        run: zensical build --clean
+        run: uv run zensical build --clean
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
